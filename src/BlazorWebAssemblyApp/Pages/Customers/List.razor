@@ -1,4 +1,4 @@
-﻿@page "/customers"
+@page "/customers"
 @inject ICustomerService Api 
 @using BlazorWebAssemblyApp.Services
 @using Domain.Models
@@ -26,23 +26,13 @@ else
 @code {
 
 
+    // This is equivalent to: @inject ICustomerService Api (declared at the top of this .razor file).
     // [Inject]
     // public ICustomerService Api { get; set; }
 
 
     private IEnumerable<Customer>? customers;
-
-    // protected override void OnInitialized()
-    // {
-    //     customers = new List<Customer>
-    //     {
-    //         new Customer { Id = 1, Name = "Customer #1", Email="john@domain.com"},
-    //         new Customer { Id = 2, Name = "Customer #2", Email="kate@domain.com"},
-    //         new Customer { Id = 3, Name = "Customer #3", Email="jacopo@domain.com"},
-    //         new Customer { Id = 4, Name = "Customer #4", Email="luca@domain.com"},
-    //     };
-    // }
-
+   
     protected override async Task OnInitializedAsync()
     {
         customers = await Api.GetAll();
