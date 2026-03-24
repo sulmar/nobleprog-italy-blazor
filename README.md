@@ -40,5 +40,5 @@ To follow along, install:
 ## Setup
 1. Clone the Git repository
 ```bash
-git clone https://github.com/sulmar/...
+git clone https://github.com/sulmar/nobleprog-italy-blazor
 ```
