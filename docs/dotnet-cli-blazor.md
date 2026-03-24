@@ -13,16 +13,22 @@
 
 # Examples
 
+## Server
+
 ```
 dotnet new blazor -int Server --name BlazorServerApp
 dotnet sln add BlazorServerApp\BlazorServerApp.csproj
 ```
+
+## WebAssembly
 
 ```
 dotnet new blazorwasm --name BlazorWebAssemblyApp
 dotnet sln add BlazorWebAssemblyApp\BlazorWebAssemblyApp.csproj
 ```
 
+
+## API
 
 ```
 dotnet new web --name Api
