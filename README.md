@@ -20,7 +20,8 @@ This repository contains a training solution that demonstrates a full Blazor eco
 - `BlazorWebAssemblyApp` - a Blazor WebAssembly frontend that consumes backend APIs (for example, `/api/customers`).
 - `Api` - a minimal ASP.NET Core API that serves customer data from in-memory repositories seeded with fake data.
 - `IdentityProvider.Api` - a minimal authentication API with sample users and JWT access-token generation via `/api/login`.
-- `Domain` and `Infrastructure` - shared domain models, abstractions, and in-memory repository implementations used by the APIs/apps.
+- `Domain` - shared domain models and repository abstractions used across the solution.
+- `Infrastructure` - in-memory repository implementations and data fakers used by backend services.
 
 Together, these projects provide a practical playground for learning UI composition, API integration, shared domain layers, and basic authentication flow in modern Blazor-based applications.
 
