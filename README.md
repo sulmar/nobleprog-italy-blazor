@@ -12,6 +12,18 @@ Welcome to the course materials for **Blazor Application Development**. This tra
 
 Whether you are new to Blazor or moving from another web stack, the goal is the same: understand how to design and ship a maintainable Blazor app with confidence.
 
+## Project Description
+
+This repository contains a training solution that demonstrates a full Blazor ecosystem, not just a single app template. The `src/` solution includes:
+
+- `BlazorServerApp` - a Blazor Server application using interactive server components.
+- `BlazorWebAssemblyApp` - a Blazor WebAssembly frontend that consumes backend APIs (for example, `/api/customers`).
+- `Api` - a minimal ASP.NET Core API that serves customer data from in-memory repositories seeded with fake data.
+- `IdentityProvider.Api` - a minimal authentication API with sample users and JWT access-token generation via `/api/login`.
+- `Domain` and `Infrastructure` - shared domain models, abstractions, and in-memory repository implementations used by the APIs/apps.
+
+Together, these projects provide a practical playground for learning UI composition, API integration, shared domain layers, and basic authentication flow in modern Blazor-based applications.
+
 ### Prerequisites
 
 To follow along, install:
