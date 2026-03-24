@@ -9,3 +9,22 @@
 | **Blazor Web App – WebAssembly**               | `dotnet new blazor --interactivity WebAssembly` | All components are rendered and run on the client side using WebAssembly                 |
 | **Blazor WebAssembly Standalone**              | `dotnet new blazorwasm`                         | Classic Blazor WASM without a backend                                                    |
 | **Blazor WebAssembly Hosted**                  | `dotnet new blazorwasm --hosted`                | Frontend and backend combined in a single solution                                       |
+
+
+# Examples
+
+```
+dotnet new blazor -int Server --name BlazorServerApp
+dotnet sln add BlazorServerApp\BlazorServerApp.csproj
+```
+
+```
+dotnet new blazorwasm --name BlazorWebAssemblyApp
+dotnet sln add BlazorWebAssemblyApp\BlazorWebAssemblyApp.csproj
+```
+
+
+```
+dotnet new web --name Api
+dotnet sln add Api\Api.csproj
+```
