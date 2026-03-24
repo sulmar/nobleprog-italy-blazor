@@ -31,6 +31,12 @@ To follow along, install:
 
 1. [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 
+### Additional Learning Materials
+
+- [Blazor Libraries: Practical Recommendations](docs/blazor-libraries.md)
+- [MudBlazor](https://mudblazor.com/)
+- [bUnit](https://bunit.dev)
+
 ## Setup
 1. Clone the Git repository
 ```bash
