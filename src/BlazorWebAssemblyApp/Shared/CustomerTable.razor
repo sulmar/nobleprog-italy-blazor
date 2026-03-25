@@ -1,0 +1,37 @@
+﻿@using Domain.Models
+
+<table class="table table-bordered table-striped-columns">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var customer in Customers)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.Name</td>
+                <td>@customer.Email</td>
+            </tr>
+        }
+
+    </tbody>
+
+    <tfoot>
+        <tr>Count: @Customers.Count()</tr>
+    </tfoot>
+      
+</table>
+
+@code {
+
+    [Parameter]
+    public IEnumerable<Customer> Customers { get; set; }
+
+
+}

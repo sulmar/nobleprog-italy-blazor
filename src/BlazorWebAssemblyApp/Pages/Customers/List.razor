@@ -1,6 +1,7 @@
 @page "/customers"
 @inject ICustomerService Api 
 @using BlazorWebAssemblyApp.Services
+@using BlazorWebAssemblyApp.Shared
 @using Domain.Models
 
 <h3>Customers</h3>
@@ -13,14 +14,7 @@
 }
 else
 {
-    <ul>
-        @foreach (var customer in customers)
-        {
-            <li>@customer.Id @customer.Name @customer.Email</li>
-        }
-
-    </ul>
-
+  <CustomerTable Customers="@customers" />
 }
 
 @code {
