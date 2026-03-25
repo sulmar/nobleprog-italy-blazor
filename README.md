@@ -42,3 +42,8 @@ To follow along, install:
 ```bash
 git clone https://github.com/sulmar/nobleprog-italy-blazor
 ```
+
+## Blazor Features Used (WebAssembly)
+This quick index shows where the Blazor features demonstrated in this training are implemented inside `src/BlazorWebAssemblyApp`.
+
+For a detailed checklist with direct "Where to look" links, see: [`docs/blazor-features-used.md`](docs/blazor-features-used.md).
