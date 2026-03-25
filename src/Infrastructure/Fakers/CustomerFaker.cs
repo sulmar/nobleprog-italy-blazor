@@ -20,7 +20,7 @@ public sealed class CustomerFaker : Faker<Customer>
 }
 
 
-// TODO: please corect
+// TODO: corect
 public sealed class AddressFaker : Faker<Address>
 {
     public AddressFaker()
