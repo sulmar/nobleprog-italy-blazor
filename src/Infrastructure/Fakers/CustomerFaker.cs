@@ -6,6 +6,7 @@ namespace Infrastructure.Fakers;
 // dotnet add package Bogus
 public sealed class CustomerFaker : Faker<Customer>
 {
+    // Dependency Injection
     public CustomerFaker(Faker<Address> addressFaker)
     {
         UseSeed(1);
