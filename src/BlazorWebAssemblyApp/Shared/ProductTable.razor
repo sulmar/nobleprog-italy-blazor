@@ -1,0 +1,18 @@
+﻿
+<EntityTable Items="Products" HeaderTemplate="@HeaderTemplate" RowTemplate="@RowTemplate" />
+
+
+@code {
+
+    [Parameter]
+    public IEnumerable<Product> Products { get; set; }
+
+    [Parameter]
+    public RenderFragment HeaderTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<Product> RowTemplate { get; set; }
+
+
+
+}

@@ -1,28 +1,7 @@
-﻿@using Domain.Models
+﻿
 
-<table class="table table-bordered table-striped-columns">
-    <thead>
-        <tr>
-            @HeaderTemplate
-        </tr>
-    </thead>
+<EntityTable Items="Customers" HeaderTemplate="@HeaderTemplate" RowTemplate="@RowTemplate" />
 
-    <tbody>
-
-        @foreach (var customer in Customers)
-        {
-            <tr>
-                @RowTemplate(customer)
-            </tr>
-        }
-
-    </tbody>
-
-    <tfoot>
-        <tr>Count: @Customers.Count()</tr>
-    </tfoot>
-      
-</table>
 
 @code {
 
