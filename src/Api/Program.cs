@@ -15,6 +15,8 @@ builder.Services.AddSingleton<IEnumerable<Customer>>(sp =>
 
 });
 
+builder.Services.AddSingleton<Faker<Address>, AddressFaker>();
+
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy=>
 {
     policy.AllowAnyOrigin();
