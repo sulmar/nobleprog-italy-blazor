@@ -3,9 +3,7 @@
 <table class="table table-bordered table-striped-columns">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
+            @HeaderTemplate
         </tr>
     </thead>
 
@@ -14,9 +12,7 @@
         @foreach (var customer in Customers)
         {
             <tr>
-                <td>@customer.Id</td>
-                <td>@customer.Name</td>
-                <td>@customer.Email</td>
+                @RowTemplate(customer)
             </tr>
         }
 
@@ -32,6 +28,13 @@
 
     [Parameter]
     public IEnumerable<Customer> Customers { get; set; }
+
+    [Parameter]
+    public RenderFragment HeaderTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<Customer> RowTemplate { get; set; }
+
 
 
 }

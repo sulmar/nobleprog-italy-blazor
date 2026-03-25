@@ -1,0 +1,14 @@
+﻿@using Domain.Models
+<h3>RowCustomer</h3>
+
+
+<td>@Customer.Name</td>
+<td>@Customer.Email</td>
+<th>@Customer.IsDeleted</th>
+    
+@code {
+
+    [Parameter]
+    public Customer Customer { get; set; }
+
+}
