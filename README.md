@@ -36,6 +36,7 @@ To follow along, install:
 - [Blazor Libraries: Practical Recommendations](docs/blazor-libraries.md)
 - [MudBlazor](https://mudblazor.com/)
 - [bUnit](https://bunit.dev)
+- [PWABuilder](https://pwabuilder.com)
 
 ## Setup
 1. Clone the Git repository
