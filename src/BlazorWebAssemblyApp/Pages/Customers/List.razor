@@ -8,6 +8,13 @@
 
 <Header />
 
+
+<!-- Search Panel -->
+<div id="search-panel">
+    <input type="text" placeholder="What do you search?" @bind-value="@SearchText" />
+    <button class="btn btn-primary" onclick=@Search>Search</button>
+</div>
+
 <Loader IsLoading="@isLoading">
    
         <CustomerTable Customers="@customers">
@@ -36,3 +43,15 @@
         </CustomerTable>
   
 </Loader>
+
+
+@code {
+
+    private string SearchText { get; set; } = "a";
+
+    private async Task Search()
+    {
+        Console.WriteLine($"Searching {SearchText}...");
+
+    }
+}
