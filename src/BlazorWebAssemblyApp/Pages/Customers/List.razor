@@ -8,12 +8,8 @@
 
 <Header />
 
+<SearchPanel ValueChanged="@OnSearch" />
 
-<!-- Search Panel -->
-<div id="search-panel">
-    <input type="text" placeholder="What do you search?" @bind-value="@SearchText" />
-    <button class="btn btn-primary" onclick=@Search>Search</button>
-</div>
 
 <Loader IsLoading="@isLoading">
    
@@ -46,12 +42,9 @@
 
 
 @code {
-
-    private string SearchText { get; set; } = "a";
-
-    private async Task Search()
+    
+    private async Task OnSearch(string searchText)
     {
-        Console.WriteLine($"Searching {SearchText}...");
-
+        Console.WriteLine($"Searching customers {searchText}...");
     }
 }
