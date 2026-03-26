@@ -6,39 +6,37 @@
 
 <h3>Customers</h3>
 
-<p>Hello Customers!</p>
+<Header />
 
-@if (customers is null)
-{
-    <p>Customers is loading...</p>
-}
-else
-{
-  <CustomerTable Customers="@customers">
-      <HeaderTemplate>            
-            <th>Name</th>
-            <th>Email</th>
-            <th>IsDeleted</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Shipping Street</th>
-            <th>Shipping City</th>
-            <th>Shippimg Country</th>
-      </HeaderTemplate>
+<Loader IsLoading="@isLoading">
+   
+        <CustomerTable Customers="@customers">
+            <HeaderTemplate>
+                <th>Name</th>
+                <th>Email</th>
+                <th>IsDeleted</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Shipping Street</th>
+                <th>Shipping City</th>
+                <th>Shippimg Country</th>
+            </HeaderTemplate>
 
-      <RowTemplate Context="Customer">            
-            <td>@Customer.Name</td>
-            <td>@Customer.Email</td>
-            <th>@Customer.IsDeleted</th>
+            <RowTemplate Context="Customer">
+                <td>@Customer.Name</td>
+                <td>@Customer.Email</td>
+                <th>@Customer.IsDeleted</th>
             
-            <AddressComponent Address="@Customer.HomeAddress" />
-            <AddressComponent Address="@Customer.ShippingAddress" />
+                <AddressComponent Address="@Customer.HomeAddress" />
+                <AddressComponent Address="@Customer.ShippingAddress" />
                        
-      </RowTemplate>
+            </RowTemplate>
 
-  </CustomerTable>
-}
+        </CustomerTable>
+  
+</Loader>
+
 
 @code {
 
@@ -46,6 +44,8 @@ else
     // This is equivalent to: @inject ICustomerService Api (declared at the top of this .razor file).
     // [Inject]
     // public ICustomerService Api { get; set; }
+
+    private bool isLoading => customers is null;
 
     private IEnumerable<Customer>? customers;
    
