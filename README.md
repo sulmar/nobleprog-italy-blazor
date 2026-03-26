@@ -29,7 +29,7 @@ Together, these projects provide a practical playground for learning UI composit
 
 To follow along, install:
 
-1. [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
+1. [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 ### Additional Learning Materials
 

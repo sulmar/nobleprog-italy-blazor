@@ -37,3 +37,16 @@ public class ExampleComponent : ComponentBase
         }
     }
 }
+```
+
+## Razor Directives in Components
+
+| Directive   | Description                                                                    |
+|-------------|--------------------------------------------------------------------------------|
+| `@page`     | Declares a route template for a Razor component page.                         |
+| `@using`    | Imports a namespace for use in the component.                                 |
+| `@inject`   | Injects a service directly into a Razor component.                            |
+| `@layout`   | Sets the layout component used to render the current Razor component.         |
+| `@attribute`| Adds a .NET attribute to the generated component class.                       |
+| `@typeparam`| Declares a generic type parameter for a Razor component.                      |
+| `@inherits` | Specifies a base class for the component to inherit shared logic and members. |
