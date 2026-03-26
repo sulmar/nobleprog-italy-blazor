@@ -5,9 +5,20 @@
 
 <button class="btn btn-primary" @onclick="ToggleTheme">Toggle Theme</button>
 
-<ThemePanel Theme="@currentTheme" />
+<CascadingValue Value="@SelectedCity" Name="city">
+    <CascadingValue Value="@SelectedCountry" Name="country">
+        <CascadingValue Value="@currentTheme">
+            <ThemePanel />    
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
+
 
 @code {
+
+    private string SelectedCountry = "Italy";
+
+    private string SelectedCity = "Verona";
 
     private Theme currentTheme = new();
 
