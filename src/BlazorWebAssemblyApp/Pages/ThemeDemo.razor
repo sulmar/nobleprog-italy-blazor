@@ -1,0 +1,19 @@
+﻿@page "/theme-demo"
+@using BlazorWebAssemblyApp.Models
+
+<h3>Theme Demo</h3>
+
+<button class="btn btn-primary" @onclick="ToggleTheme">Toggle Theme</button>
+
+<ThemePanel Theme="@currentTheme" />
+
+@code {
+
+    private Theme currentTheme = new();
+
+    private void ToggleTheme()
+    {
+        currentTheme = currentTheme.Name == "Light" ? new Theme { Name = "Dark" } : new Theme { Name = "Light" };
+    }
+
+}

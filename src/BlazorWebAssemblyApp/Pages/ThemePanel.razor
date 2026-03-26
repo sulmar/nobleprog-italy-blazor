@@ -1,0 +1,12 @@
+﻿@using BlazorWebAssemblyApp.Models
+
+<div class="p-3 border">
+    <ThemeCard Theme="@Theme" />
+</div>
+
+@code {
+
+    [Parameter]
+    public Theme Theme { get; set; }
+
+}

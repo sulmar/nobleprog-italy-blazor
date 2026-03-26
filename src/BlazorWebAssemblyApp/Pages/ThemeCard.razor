@@ -1,0 +1,12 @@
+﻿@using BlazorWebAssemblyApp.Models
+
+<div style="background:@Theme.Background">
+    Current theme: @Theme.Name
+</div>
+
+@code {
+
+    [Parameter]
+    public Theme Theme { get; set; }
+
+}
