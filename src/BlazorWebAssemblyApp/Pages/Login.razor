@@ -1,0 +1,45 @@
+@page "/login"
+@inject JwtAuthService AuthService
+@inject NavigationManager Nav
+@inject AuthenticationStateProvider AuthStateProvider
+
+<PageTitle>Login</PageTitle>
+
+<h3>Login</h3>
+
+<div class="mb-2">
+    <label class="form-label" for="username">Username</label>
+    <input id="username" class="form-control" @bind="username" />
+</div>
+
+<div class="mb-3">
+    <label class="form-label" for="password">Password</label>
+    <input id="password" type="password" class="form-control" @bind="password" />
+</div>
+
+<button class="btn btn-primary" @onclick="HandleLogin">Login</button>
+
+@if (!string.IsNullOrWhiteSpace(error))
+{
+    <p class="text-danger mt-2">@error</p>
+}
+
+@code {
+    private string username = "john";
+    private string password = "123";
+    private string? error;
+
+    private async Task HandleLogin()
+    {
+        var ok = await AuthService.Login(username, password);
+
+        if (!ok)
+        {
+            error = "Invalid credentials.";
+            return;
+        }
+
+        ((JwtAuthStateProvider)AuthStateProvider).NotifyUserAuthentication();
+        Nav.NavigateTo("/");
+    }
+}

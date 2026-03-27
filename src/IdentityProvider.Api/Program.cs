@@ -1,4 +1,4 @@
-﻿using IdentityProvider.Api.Abstractions;
+using IdentityProvider.Api.Abstractions;
 using IdentityProvider.Api.Infrastructures;
 using IdentityProvider.Api.Models;
 using IdentityProvider.Api.Services;
@@ -69,7 +69,9 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 {
     // policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowAnyMethod();
 
-    policy.WithOrigins("https://localhost:7034").WithMethods("GET").AllowAnyHeader();
+    policy.WithOrigins("https://localhost:7034")
+        .WithMethods("GET", "POST", "OPTIONS")
+        .AllowAnyHeader();
 }));
 
 var app = builder.Build();
