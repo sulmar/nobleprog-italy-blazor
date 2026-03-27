@@ -1,4 +1,4 @@
-<file name=0 path=/Users/marcinsulecki/Projects/blazor-starter/excercises/product-landing-page.md># 🛍️ Task: Product page with preview and QR code
+# 🛍️ Task: Product page with preview and QR code
 
 ## 🧩 Goal:
 
