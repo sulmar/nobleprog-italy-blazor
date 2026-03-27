@@ -4,9 +4,11 @@ public class Customer : BaseEntity
 {
     public required string Name { get; set; }
     public required string Email { get; set; }
-    public Address HomeAddress { get; set; }
-    public Address ShippingAddress { get; set; }
+    public Address HomeAddress { get; set; } = new Address();
+    public Address ShippingAddress { get; set; } = new Address();
     public bool IsDeleted { get; set; }
+
+
 }
 
 public record Address

@@ -11,6 +11,27 @@
         <div class="card-body">
             <h5 class="card-title">@customer.Name</h5>
             <p class="card-text">@customer.Email</p>
+
+
+            <button @onclick="@ChangeVisible">Show/Hide Shipping Address</button>
+
+            @if (VisibleShippingAddress)
+            {
+                <div>
+                    <h6>Shipping Addresss</h6>
+                    @customer.ShippingAddress.Country
+                </div>
+            }
+
+            <button @onclick="@Toggle">Toggle Active</button>
+
+            <p id="active-label" class="@(isActive ? "active" : "")">Lorem ipsum</p>
+
+
+            <input type="text" @bind-value="@customer.Name" @bind-value:event="oninput" />
+            <button @onclick="@ChangeName">Change Name</button>
+            
+
         </div>
 
     </div>
@@ -20,16 +41,42 @@
 
 @code {
 
-    [Parameter]
-    public int Id { get; set; }
 
+    // private string newName;
+
+    private void ChangeName()
+    {
+        customer.Name = customer.Name + "!";
+    }
+
+
+    [Parameter]
+    public int Id { get; set; }    
 
     private Customer? customer;
 
     private bool IsLoading => customer == null;
 
+    private bool VisibleShippingAddress;
 
-    protected override async Task OnInitializedAsync()
+    private void ChangeVisible()
+    {
+        VisibleShippingAddress = !VisibleShippingAddress;
+    }
+
+
+    private bool isActive = false;
+
+    private void Toggle()
+    {
+        isActive = !isActive;
+
+        customer.Name = customer.Name + "!";
+
+    }
+
+    
+    protected override async Task OnParametersSetAsync()
     {
         customer = await Api.Get(Id);
     }

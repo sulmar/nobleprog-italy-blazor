@@ -16,11 +16,11 @@ public partial class List
 
     private bool isLoading => customers is null;
 
-    private IEnumerable<Customer>? customers;
+    private IList<Customer>? customers;
     
 
     protected override async Task OnInitializedAsync()
     {
-        customers = await Api.GetAll();
+        customers = new List<Customer>( await Api.GetAll() );
     }
 }

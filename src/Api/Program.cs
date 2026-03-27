@@ -11,7 +11,7 @@ builder.Services.AddSingleton<IEnumerable<Customer>>(sp =>
 {
     var faker = sp.GetService<Faker<Customer>>();
 
-    return faker.Generate(100);
+    return faker.Generate(10);
 
 });
 

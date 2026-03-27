@@ -12,6 +12,10 @@
 <SearchPanel ValueChanged="@OnSearch" />
 
 
+<div>
+    <button class="btn btn-primary" @onclick="@Add">Add Customer</button>
+</div>
+
 <Loader IsLoading="@isLoading">
    
         <CustomerTable Customers="@customers">
@@ -61,5 +65,13 @@
     private async Task OnSearch(string searchText)
     {
         Console.WriteLine($"Searching customers {searchText}...");
+    }
+
+    private void Add()
+    {
+        customers.Add(new Customer { Id = 999, Name = "Demo", Email = "demo@domain.com" });
+
+
+   //     StateHasChanged();
     }
 }
