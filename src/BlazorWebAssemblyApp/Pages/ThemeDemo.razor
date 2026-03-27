@@ -1,0 +1,30 @@
+﻿@page "/theme-demo"
+@using BlazorWebAssemblyApp.Models
+
+<h3>Theme Demo</h3>
+
+<button class="btn btn-primary" @onclick="ToggleTheme">Toggle Theme</button>
+
+<CascadingValue Value="@SelectedCity" Name="city">
+    <CascadingValue Value="@SelectedCountry" Name="country">
+        <CascadingValue Value="@currentTheme">
+            <ThemePanel />    
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
+
+
+@code {
+
+    private string SelectedCountry = "Italy";
+
+    private string SelectedCity = "Verona";
+
+    private Theme currentTheme = new();
+
+    private void ToggleTheme()
+    {
+        currentTheme = currentTheme.Name == "Light" ? new Theme { Name = "Dark" } : new Theme { Name = "Light" };
+    }
+
+}

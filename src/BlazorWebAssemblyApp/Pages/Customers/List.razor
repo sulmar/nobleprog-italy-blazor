@@ -1,61 +1,79 @@
 @page "/customers"
 @inject ICustomerService Api 
+@inject NavigationManager Nav
 @using BlazorWebAssemblyApp.Services
 @using BlazorWebAssemblyApp.Shared
 @using Domain.Models
 
 <h3>Customers</h3>
 
-<p>Hello Customers!</p>
+<Header />
 
-@if (customers is null)
-{
-    <p>Customers is loading...</p>
-}
-else
-{
-  <CustomerTable Customers="@customers">
-      <HeaderTemplate>            
-            <th>Name</th>
-            <th>Email</th>
-            <th>IsDeleted</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Shipping Street</th>
-            <th>Shipping City</th>
-            <th>Shippimg Country</th>
-      </HeaderTemplate>
+<SearchPanel ValueChanged="@OnSearch" />
 
-      <RowTemplate Context="Customer">            
-            <td>@Customer.Name</td>
-            <td>@Customer.Email</td>
-            <th>@Customer.IsDeleted</th>
+
+<div>
+    <button class="btn btn-primary" @onclick="@Add">Add Customer</button>
+</div>
+
+<Loader IsLoading="@isLoading">
+   
+        <CustomerTable Customers="@customers">
+            <HeaderTemplate>
+                <th>Name</th>
+                <th>Email</th>
+                <th>IsDeleted</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Shipping Street</th>
+                <th>Shipping City</th>
+                <th>Shippimg Country</th>
+                <th>Actions</th>
+            </HeaderTemplate>
+
+            <RowTemplate Context="Customer">
+                <td>@Customer.Name</td>
+                <td>@Customer.Email</td>
+                <td>@Customer.IsDeleted</td>
             
-            <AddressComponent Address="@Customer.HomeAddress" />
-            <AddressComponent Address="@Customer.ShippingAddress" />
-                       
-      </RowTemplate>
+                <AddressComponent Address="@Customer.HomeAddress" />
+                <AddressComponent Address="@Customer.ShippingAddress" />
 
-  </CustomerTable>
-}
+                <td>
+                    <a href="/customers/view/@Customer.Id" class="btn btn-primary" >View</a>
+                    <a href="/customers/edit/@Customer.Id" class="btn btn-primary">Edit</a>
+                    <button @onclick="@OnDelete" class="btn btn-danger">Delete</button>
+                
+                </td>
+                       
+            </RowTemplate>
+
+        </CustomerTable>
+  
+</Loader>
+
 
 @code {
 
-
-    // This is equivalent to: @inject ICustomerService Api (declared at the top of this .razor file).
-    // [Inject]
-    // public ICustomerService Api { get; set; }
-
-    private IEnumerable<Customer>? customers;
-   
-    protected override async Task OnInitializedAsync()
+    private async Task OnDelete()
     {
-        customers = await Api.GetAll();
+        Console.WriteLine("Are you sure?");
+
+        Nav.NavigateTo("/");
+
     }
 
+    private async Task OnSearch(string searchText)
+    {
+        Console.WriteLine($"Searching customers {searchText}...");
+    }
+
+    private void Add()
+    {
+        customers.Add(new Customer { Id = 999, Name = "Demo", Email = "demo@domain.com" });
 
 
+   //     StateHasChanged();
+    }
 }
-
-

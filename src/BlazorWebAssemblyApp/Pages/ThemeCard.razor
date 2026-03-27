@@ -1,0 +1,29 @@
+﻿@using BlazorWebAssemblyApp.Models
+@using BlazorWebAssemblyApp.Pages.Customers
+
+@inherits SpecialComponent
+
+<div style="background:@Theme.Background">
+    Current theme: @Theme.Name
+
+    Selected country: @SelectedCountry
+
+    Selected city: @SelectedStreet
+</div>
+
+@code {
+
+    // [CascadingParameter]
+    // public Theme Theme { get; set; }
+
+
+    [CascadingParameter(Name = "country")]
+    public string SelectedCountry { get; set; }
+
+    [CascadingParameter(Name = "city")]
+    public string SelectedStreet { get; set;  }
+
+    
+
+
+}
