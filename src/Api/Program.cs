@@ -32,5 +32,7 @@ app.UseCors();
 app.MapGet("/", () => "Hello Api!");
 
 app.MapGet("/api/customers", async (ICustomerRepository repository) => await repository.GetAllAsync());
+app.MapGet("/api/customers/{id}", async (ICustomerRepository repository, int id) => await repository.GetByIdAsync(id));
+
 
 app.Run();

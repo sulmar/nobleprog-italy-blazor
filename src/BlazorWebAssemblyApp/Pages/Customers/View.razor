@@ -1,0 +1,38 @@
+﻿@page "/customers/view/{id:int}"
+@using BlazorWebAssemblyApp.Services
+@using BlazorWebAssemblyApp.Shared
+@inject ICustomerService Api
+
+<h3>View Customer Id = @Id</h3>
+
+<Loader IsLoading="@IsLoading">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@customer.Name</h5>
+            <p class="card-text">@customer.Email</p>
+        </div>
+
+    </div>
+</Loader>
+
+
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+
+    private Customer? customer;
+
+    private bool IsLoading => customer == null;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        customer = await Api.Get(Id);
+    }
+
+
+}

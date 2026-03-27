@@ -1,5 +1,6 @@
 @page "/customers"
 @inject ICustomerService Api 
+@inject NavigationManager Nav
 @using BlazorWebAssemblyApp.Services
 @using BlazorWebAssemblyApp.Shared
 @using Domain.Models
@@ -24,15 +25,21 @@
                 <th>Shipping Street</th>
                 <th>Shipping City</th>
                 <th>Shippimg Country</th>
+                <th>Actions</th>
             </HeaderTemplate>
 
             <RowTemplate Context="Customer">
                 <td>@Customer.Name</td>
                 <td>@Customer.Email</td>
-                <th>@Customer.IsDeleted</th>
+                <td>@Customer.IsDeleted</td>
             
                 <AddressComponent Address="@Customer.HomeAddress" />
                 <AddressComponent Address="@Customer.ShippingAddress" />
+
+                <td>
+                    <a href="/customers/view/@Customer.Id" class="btn btn-primary" >View</a>
+                    <button @onclick="@OnDelete" class="btn btn-danger">Delete</button>
+                </td>
                        
             </RowTemplate>
 
@@ -42,7 +49,15 @@
 
 
 @code {
-    
+
+    private async Task OnDelete()
+    {
+        Console.WriteLine("Are you sure?");
+
+        Nav.NavigateTo("/");
+
+    }
+
     private async Task OnSearch(string searchText)
     {
         Console.WriteLine($"Searching customers {searchText}...");
