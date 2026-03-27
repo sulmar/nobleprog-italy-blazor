@@ -1,12 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
 
 namespace Domain.Models;
 
 public class Customer : BaseEntity
 {
-    [Required, MinLength(3)]
     public required string Name { get; set; }
-    [EmailAddress]
     public required string Email { get; set; }
     public Address HomeAddress { get; set; } = new Address();
     public Address ShippingAddress { get; set; } = new Address();

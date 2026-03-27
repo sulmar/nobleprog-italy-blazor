@@ -1,21 +1,25 @@
 ﻿@page "/customers/edit/{id:int}"
 @using BlazorWebAssemblyApp.Services
 @using BlazorWebAssemblyApp.Shared
+@using Blazored.FluentValidation
 @inject ICustomerService Api
 
 <h3>Edit</h3>
 
 <Loader IsLoading="@IsLoading">
 
-    <EditForm Model="@customer" OnValidSubmit="@HandleSave" >
+    <EditForm Model="@customer" OnValidSubmit="@HandleSave"  >
 
-        <DataAnnotationsValidator />
+       @*  <DataAnnotationsValidator /> *@
+
+       <FluentValidationValidator />
+
 
         <ValidationSummary />
 
         <div class="mb-3">
             <label for="name" class="form-label">Name: </label>
-            <InputText id="name" @bind-Value="customer.Name" class="form-control" />
+            <InputText id="name" @bind-Value="customer.Name" class="form-control"  />
             <ValidationMessage For="()=>customer.Name" />
 
         </div>
@@ -26,7 +30,23 @@
             <ValidationMessage For="() => customer.Email" />
         </div>
 
+        
+        <div class="mb-3">
+            <label for="city" class="form-label">City: </label>
+            <InputText id="city" @bind-Value="customer.ShippingAddress.City" class="form-control" />
+            <ValidationMessage For="() => customer.ShippingAddress.City" />
+        </div>
+
+        <div class="mb-3">
+            <label for="city" class="form-label">City: </label>
+            <InputText id="city" @bind-Value="customer.ShippingAddress.City" class="form-control" />
+            <ValidationMessage For="() => customer.ShippingAddress.City" />
+        </div>
+
+
         <button type="submit" class="btn btn-primary">Save</button>
+        
+      
 
     </EditForm>
 
